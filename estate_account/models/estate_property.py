@@ -7,7 +7,7 @@ _logger = logging.getLogger(__name__)
 class EstateProperty(models.Model):
     _inherit = 'estate.property' #type: ignore
 
-    def set_state_sold(self):
+    def action_sold(self):
         res = super().set_state_sold() #type: ignore
         Move = self.env['account.move']
         Journal = self.env['account.journal']

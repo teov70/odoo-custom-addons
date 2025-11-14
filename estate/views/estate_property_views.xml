@@ -56,8 +56,8 @@
     <field name="arch" type="xml">
       <form>
         <header>
-          <button name="set_state_sold" type="object" string="Sold" invisible="state in ('sold', 'cancelled')"/>
-          <button name="set_state_cancelled" type="object" string="Cancel" invisible="state in ('sold', 'cancelled')"/>
+          <button name="action_sold" type="object" string="Sold" invisible="state in ('sold', 'cancelled')"/>
+          <button name="action_cancelled" type="object" string="Cancel" invisible="state in ('sold', 'cancelled')"/>
           <field name="state" widget="statusbar"/>
         </header>
         <sheet>
