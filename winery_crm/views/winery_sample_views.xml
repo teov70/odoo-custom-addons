@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="view_winery_sample_list" model="ir.ui.view">
+    <field name="name">winery.sample.list</field>
+    <field name="model">winery.sample</field>
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="product_id"/>
+        <field name="vintage"/>
+        <field name="score"/>
+        <field name="notes"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_winery_sample_form" model="ir.ui.view">
+    <field name="name">winery.sample.form</field>
+    <field name="model">winery.sample</field>
+    <field name="arch" type="xml">
+      <form string="Tasting Sample">
+        <sheet>
+          <group>
+            <group>
+              <field name="product_id"/>
+              <field name="vintage"/>
+            </group>
+            <group>
+              <field name="sequence"/>
+              <field name="score"/>
+            </group>
+          </group>
+          <group string="Notes">
+            <field name="notes"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+</odoo>

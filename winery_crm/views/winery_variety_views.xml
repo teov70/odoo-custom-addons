@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <!-- Grape Variety list -->
+  <record id="view_winery_variety_list" model="ir.ui.view">
+    <field name="name">winery.variety.list</field>
+    <field name="model">winery.variety</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="color"/>
+        <field name="active"/>
+      </list>
+    </field>
+  </record>
+
+  <!-- Grape Variety form -->
+  <record id="view_winery_variety_form" model="ir.ui.view">
+    <field name="name">winery.variety.form</field>
+    <field name="model">winery.variety</field>
+    <field name="arch" type="xml">
+      <form string="Grape Variety">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="color"/>
+            </group>
+            <group>
+              <field name="active"/>
+            </group>
+          </group>
+          <group string="Notes">
+            <field name="notes"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+</odoo>

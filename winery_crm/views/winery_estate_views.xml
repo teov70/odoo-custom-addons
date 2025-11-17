@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <!-- Estate list (list) -->
+  <record id="view_winery_estate_list" model="ir.ui.view">
+    <field name="name">winery.estate.list</field>
+    <field name="model">winery.estate</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name" class="o_ellipsis" width="150"/>
+        <field name="region" class="o_ellipsis" width="150"/>
+        <field name="vineyard_area_ha"/>
+        <field name="orchard_area_ha"/>
+        <field name="tasting_capacity_indoor"/>
+        <field name="tasting_capacity_outdoor"/>
+      </list>
+    </field>
+  </record>
+
+  <!-- Estate form -->
+  <record id="view_winery_estate_form" model="ir.ui.view">
+    <field name="name">winery.estate.form</field>
+    <field name="model">winery.estate</field>
+    <field name="arch" type="xml">
+      <form string="Winery Estate">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="partner_id"/>
+              <field name="region"/>
+            </group>
+            <group>
+              <field name="variety_ids" widget="form.many2many_tags" options="{'color_field': 'tag_color'}"/>
+              <field name="vineyard_area_ha"/>
+              <field name="orchard_area_ha"/>
+              <field name="tasting_capacity_indoor"/>
+              <field name="tasting_capacity_outdoor"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Description">
+              <field name="description" options="{'codeview': true}"/>
+            </page>
+            <page string="Tastings">
+              <field name="tasting_ids">
+                <list editable="bottom">
+                  <field name="name"/>
+                  <field name="date_start"/>
+                  <field name="date_end"/>
+                  <field name="state"/>
+                  <field name="partner_id"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+</odoo>

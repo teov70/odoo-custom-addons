@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <!-- Root menu (app) -->
+  <menuitem
+      id="menu_winery_root"
+      name="Winery"
+      sequence="50"/>
+
+  <!-- Estates menu -->
+  <record id="action_winery_estate" model="ir.actions.act_window">
+    <field name="name">Estates</field>
+    <field name="res_model">winery.estate</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p>Create your first winery estate.</p>
+    </field>
+  </record>
+
+  <menuitem
+      id="menu_winery_estate"
+      name="Estates"
+      parent="menu_winery_root"
+      action="action_winery_estate"
+      sequence="10"/>
+
+  <!-- Tastings menu -->
+  <record id="action_winery_tasting" model="ir.actions.act_window">
+    <field name="name">Tastings</field>
+    <field name="res_model">winery.tasting</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p>Track tastings and visits to the estate.</p>
+    </field>
+  </record>
+
+  <menuitem
+      id="menu_winery_tasting"
+      name="Tastings"
+      parent="menu_winery_root"
+      action="action_winery_tasting"
+      sequence="20"/>
+
+  <!-- Configuration parent menu -->
+  <menuitem
+      id="menu_winery_config"
+      name="Configuration"
+      parent="menu_winery_root"
+      sequence="90"/>
+
+  <!-- Action for Grape Varieties -->
+  <record id="action_winery_variety" model="ir.actions.act_window">
+    <field name="name">Grape Varieties</field>
+    <field name="res_model">winery.variety</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p>Define grape varieties used by your estates and wines.</p>
+    </field>
+  </record>
+
+  <!-- Menu for Grape Varieties -->
+  <menuitem
+      id="menu_winery_variety"
+      name="Grape Varieties"
+      parent="menu_winery_config"
+      action="action_winery_variety"
+      sequence="10"/>
+
+</odoo>
