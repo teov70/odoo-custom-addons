@@ -9,6 +9,7 @@
       <list>
         <field name="name"/>
         <field name="color"/>
+        <field name="tag_color" widget="color_picker" nolabel="1"/>
         <field name="active"/>
       </list>
     </field>
@@ -27,6 +28,7 @@
               <field name="color"/>
             </group>
             <group>
+              <field name="tag_color" widget="color_picker"/>
               <field name="active"/>
             </group>
           </group>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <!-- Inherit product template TREE (list) to show winery columns -->
+  <record id="view_product_template_tree_winery" model="ir.ui.view">
+    <field name="name">product.template.tree.winery</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_tree_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="product_type" string="Product type"/>
+        <field name="year"/>
+        <field name="winery_estate_id"/>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Inherit product template FORM to add a Winery section -->
+  <record id="view_product_template_form_winery" model="ir.ui.view">
+    <field name="name">product.template.form.winery</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//page[@name='general_information']" position="after">
+        <page name="winery" string="Winery">
+          <group>
+            <field name="is_winery_product"/>
+            <field name="product_type"/>
+            <field name="year"
+                   invisible="product_type not in ['wine', 'sparkling']"/>
+          </group>
+          <group>
+            <field name="winery_estate_id"
+                   invisible="not is_winery_product"/>
+            <field name="winery_variety_ids"
+                   widget="many2many_tags"
+                   options="{'color_field': 'tag_color'}"
+                   invisible="product_type not in ['wine', 'sparkling']"/>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

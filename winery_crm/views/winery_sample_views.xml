@@ -7,8 +7,10 @@
     <field name="arch" type="xml">
       <list editable="bottom">
         <field name="sequence" widget="handle"/>
-        <field name="product_id"/>
-        <field name="vintage"/>
+        <field name="product_id"
+          domain="[('is_winery_product', '=', True), ('winery_estate_id', '=', estate_id)]"/>
+        <field name="product_variety_ids" widget="many2many_tags" options="{'color_field': 'tag_color'}"/>
+        <field name="year"/>
         <field name="score"/>
         <field name="notes"/>
       </list>
@@ -23,8 +25,10 @@
         <sheet>
           <group>
             <group>
-              <field name="product_id"/>
-              <field name="vintage"/>
+              <field name="product_id"
+                domain="[('is_winery_product', '=', True), ('winery_estate_id', '=', estate_id)]"/>
+              <field name="product_variety_ids" widget="many2many_tags" options="{'color_field': 'tag_color'}"/>
+              <field name="year"/>
             </group>
             <group>
               <field name="sequence"/>

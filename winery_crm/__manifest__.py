@@ -25,6 +25,7 @@ Initial skeleton: estates and tastings with basic menus and access.
         "views/winery_tasting_views.xml",
         "views/winery_variety_views.xml",
         "views/winery_sample_views.xml",
+        "views/product_template_views.xml",
     ],
     "demo": [],
     "application": True,

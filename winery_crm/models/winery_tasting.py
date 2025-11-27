@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class WineryTasting(models.Model):
@@ -23,6 +24,12 @@ class WineryTasting(models.Model):
 
     date_start = fields.Datetime(required=True)
     date_end = fields.Datetime(required=True)
+    duration_hours = fields.Float(
+        string="Duration (hours)",
+        compute="_compute_duration_hours",
+        store=True,
+        help="Length of the tasting based on start/end times.",
+    )
 
     attendees_ids = fields.Many2many(
         "res.partner",
@@ -55,3 +62,18 @@ class WineryTasting(models.Model):
     def _compute_sample_count(self):
         for tasting in self:
             tasting.sample_count = len(tasting.sample_ids)
+
+    @api.depends("date_start", "date_end")
+    def _compute_duration_hours(self):
+        for tasting in self:
+            if tasting.date_start and tasting.date_end:
+                delta = tasting.date_end - tasting.date_start
+                tasting.duration_hours = delta.total_seconds() / 3600.0
+            else:
+                tasting.duration_hours = 0.0
+
+    @api.constrains("date_start", "date_end")
+    def _check_dates_order(self):
+        for tasting in self:
+            if tasting.date_start and tasting.date_end and tasting.date_end <= tasting.date_start:
+                raise ValidationError("The end date must be after the start date.")

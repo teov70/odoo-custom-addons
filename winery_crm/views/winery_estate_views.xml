@@ -31,7 +31,7 @@
               <field name="region"/>
             </group>
             <group>
-              <field name="variety_ids" widget="form.many2many_tags" options="{'color_field': 'tag_color'}"/>
+              <field name="variety_ids" widget="many2many_tags" options="{'color_field': 'tag_color'}"/>
               <field name="vineyard_area_ha"/>
               <field name="orchard_area_ha"/>
               <field name="tasting_capacity_indoor"/>
@@ -44,7 +44,7 @@
             </page>
             <page string="Tastings">
               <field name="tasting_ids">
-                <list editable="bottom">
+                <list>
                   <field name="name"/>
                   <field name="date_start"/>
                   <field name="date_end"/>
