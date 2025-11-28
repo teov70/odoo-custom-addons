@@ -9,10 +9,15 @@
       <list>
         <field name="name" class="o_ellipsis" width="150"/>
         <field name="region" class="o_ellipsis" width="150"/>
+        <field name="city"/>
+        <field name="country_id"/>
         <field name="vineyard_area_ha"/>
         <field name="orchard_area_ha"/>
         <field name="tasting_capacity_indoor"/>
         <field name="tasting_capacity_outdoor"/>
+        <field name="tasting_capacity_total"/>
+        <field name="upcoming_attendees"/>
+        <field name="capacity_utilization"/>
       </list>
     </field>
   </record>
@@ -29,6 +34,7 @@
               <field name="name"/>
               <field name="partner_id"/>
               <field name="region"/>
+              <field name="visiting_hours"/>
             </group>
             <group>
               <field name="variety_ids" widget="many2many_tags" options="{'color_field': 'tag_color'}"/>
@@ -36,6 +42,22 @@
               <field name="orchard_area_ha"/>
               <field name="tasting_capacity_indoor"/>
               <field name="tasting_capacity_outdoor"/>
+              <field name="tasting_capacity_total" readonly="1"/>
+              <field name="upcoming_attendees" readonly="1"/>
+              <field name="capacity_utilization" readonly="1"/>
+            </group>
+          </group>
+          <group string="Address &amp; Location" colspan="4">
+            <group>
+              <field name="street"/>
+              <field name="street2"/>
+              <field name="zip"/>
+              <field name="city"/>
+              <field name="country_id"/>
+            </group>
+            <group>
+              <field name="latitude"/>
+              <field name="longitude"/>
             </group>
           </group>
           <notebook>

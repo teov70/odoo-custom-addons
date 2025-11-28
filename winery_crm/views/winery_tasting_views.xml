@@ -24,6 +24,9 @@
     <field name="model">winery.tasting</field>
     <field name="arch" type="xml">
       <form string="Winery Tasting">
+        <header>
+          <field name="state" widget="statusbar"/>
+        </header>
         <sheet>
           <group>
             <group>
@@ -34,7 +37,6 @@
             <group>
               <field name="date_start"/>
               <field name="date_end"/>
-              <field name="state"/>
               <field name="sample_count" readonly="1"/>
             </group>
           </group>
@@ -51,6 +53,19 @@
           </notebook>
         </sheet>
       </form>
+    </field>
+  </record>
+
+  <record id="view_winery_tasting_calendar" model="ir.ui.view">
+    <field name="name">winery.tasting.calendar</field>
+    <field name="model">winery.tasting</field>
+    <field name="arch" type="xml">
+      <calendar string="Tastings" date_start="date_start" date_stop="date_end">
+        <field name="name"/>
+        <field name="estate_id"/>
+        <field name="partner_id"/>
+        <field name="state"/>
+      </calendar>
     </field>
   </record>
 
