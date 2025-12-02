@@ -2,3 +2,4 @@
 Custom addons developed for learning and portfolio.
 - estate
 - estate_account
+- winery_crm
