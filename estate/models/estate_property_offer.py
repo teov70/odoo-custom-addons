@@ -1,4 +1,4 @@
-from odoo import _, models, fields, api # type: ignore[attr-defined]
+from odoo import _, models, fields, api
 from odoo.exceptions import UserError, ValidationError
 
 class EstatePropertyOffer(models.Model):

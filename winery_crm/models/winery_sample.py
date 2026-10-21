@@ -47,6 +47,40 @@ class WinerySample(models.Model):
         string="Tasting Notes",
     )
 
+    # Related booleans and texts from the wine (product)
+    has_allergen_warning = fields.Boolean(
+        string="Allergen warning?",
+        related='product_id.has_allergen_warning',
+        readonly=True,
+    )
+    allergen_warning_text = fields.Char(
+        string="Allergen warning text",
+        related='product_id.allergen_warning_text',
+        readonly=True,
+    )
+
+    has_serving_note = fields.Boolean(
+        string="Special serving note?",
+        related='product_id.has_serving_note',
+        readonly=True,
+    )
+    serving_note_text = fields.Char(
+        string="Serving note text",
+        related='product_id.serving_note_text',
+        readonly=True,
+    )
+
+    has_organic_cert = fields.Boolean(
+        string="Organic certification?",
+        related='product_id.has_organic_cert',
+        readonly=True,
+    )
+    organic_cert_text = fields.Char(
+        string="Organic certification text",
+        related='product_id.organic_cert_text',
+        readonly=True,
+    )
+
     @api.constrains("product_id")
     def _check_product_is_winery(self):
         for rec in self:

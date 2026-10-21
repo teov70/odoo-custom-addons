@@ -38,6 +38,21 @@
                    invisible="product_type not in ['wine', 'sparkling']"/>
           </group>
         </page>
+        <page name="wine_service" string="Wine Service &amp; Warnings">
+            <group>
+                <field name="has_allergen_warning"/>
+                <field name="allergen_warning_text"
+                        invisible="not has_allergen_warning"/>
+
+                <field name="has_serving_note"/>
+                <field name="serving_note_text"
+                        invisible="not has_serving_note"/>
+
+                <field name="has_organic_cert"/>
+                <field name="organic_cert_text"
+                        invisible="not has_organic_cert"/>
+            </group>
+        </page>
       </xpath>
     </field>
   </record>
